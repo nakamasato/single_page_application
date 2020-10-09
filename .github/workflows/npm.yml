@@ -2,9 +2,6 @@ name: npm
 
 on: push
 
-env:
-  E2E_USERGRAM_FRONT_DIR: node-test
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +11,7 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: ~/.npm
+          path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
